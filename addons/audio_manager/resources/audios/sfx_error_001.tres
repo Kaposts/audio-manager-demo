@@ -7,5 +7,5 @@
 script = ExtResource("2_h2n8h")
 res_name = "sfx_error_001"
 res_stream = ExtResource("1_5wo13")
-res_volume_db = -61.0
+res_volume_db = 0.0
 res_pitch_scale = 1.0

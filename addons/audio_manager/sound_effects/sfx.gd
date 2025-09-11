@@ -7,7 +7,7 @@ var sfx_library: Dictionary = {}
 
 func _ready():
 	var lib: SFXLibrary = load("res://addons/audio_manager/resources/SFXLibrary.tres")
-	for sound: SFXData in lib.sounds:
+	for sound: AudioData in lib.sounds:
 		sfx_library[sound.res_name] = sound
 
 	for i in range(max_channels):
@@ -16,7 +16,7 @@ func _ready():
 		channels.append(player)
 
 func play_sfx(sound_name: String, volume_db: float = 0, pitch_scale: float = 1.0):
-	var stream: SFXData = sfx_library.get(sound_name)
+	var stream: AudioData = sfx_library.get(sound_name)
 
 	if stream:
 		for player: AudioStreamPlayer2D in channels:

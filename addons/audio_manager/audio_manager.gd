@@ -7,7 +7,7 @@ const audio_extensions: Array[String] = ["wav", "ogg"]
 var icon: Texture
 var button: Button
 
-var sounds: Array[SFXData] = []
+var sounds: Array[AudioData] = []
 var library: SFXLibrary = SFXLibrary.new()
 var sound_script_lines: Array[String] = []
 
@@ -69,7 +69,7 @@ func _on_load_pressed() -> void:
     generate_library()
     write_const_file()
 
-func create_sfx_data(sfx: AudioStream, prefix: String) -> SFXData:
+func create_sfx_data(sfx: AudioStream, prefix: String) -> AudioData:
     assert(sfx, "no sfx defined")
 
     var sfx_name = get_base_name(sfx)
@@ -80,7 +80,7 @@ func create_sfx_data(sfx: AudioStream, prefix: String) -> SFXData:
         const_name += prefix + "_"
     const_name += sfx_name
 
-    var data = SFXData.new()
+    var data = AudioData.new()
     data.res_name = const_name.to_lower()
     data.res_stream = sfx
 

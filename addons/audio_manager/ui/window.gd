@@ -2,17 +2,14 @@
 extends Window
 class_name SFXManagerWindow
 
-var audios: Array[SFXData] = [] 
-var results: Array[SFXData] = [] 
+var audios: Array[AudioData] = [] 
+var results: Array[AudioData] = [] 
 
-@onready var library_label: Label = $Label
-@onready var audios_controls = $Audios/v_box
+@onready var library_label: Label = $SFX/Label
+@onready var audios_controls = $SFX/Audios/v_box
 
 const RESOURCE_EXTENSION = ".tres"
 const LIBRARY_PATH = "res://addons/audio_manager/resources/audios/"
-
-## legacy
-const LIBRARY_FILE_PATH = "res://addons/audio_manager/resources/sfx_library.tres"
 
 @onready var loadBut: Button = $VBoxContainer/Load
 
@@ -41,7 +38,7 @@ func read_dir() -> void:
             continue
 
         elif filename.get_extension().to_lower() in RESOURCE_EXTENSION:
-                var resource: SFXData = load(LIBRARY_PATH + filename)
+                var resource: AudioData = load(LIBRARY_PATH + filename)
                 assert(resource,"resource " + filename + " was not found")
                 audios.append(resource)
         else: 
@@ -52,6 +49,30 @@ func read_dir() -> void:
     dir.list_dir_end()
 
     results = audios
+
+
+
+func _on_config_pressed() -> void:
+    hide_tabs()
+    $Config.show()
+
+func _on_bgm_pressed() -> void:
+    hide_tabs()
+    $BGM.show()
+
+func _on_sfx_pressed() -> void:
+    hide_tabs()
+    $SFX.show()
+
+func hide_tabs():
+    $Welcome.hide()
+    $SFX.hide()
+    $Config.hide()
+    $BGM.hide()
+
+
+## STUFF FOR CONTROLING SOUNF EFFECTS
+## TODO maybe move it inside sfx_control.gd
 
 func load_audios():
     library_label.text = "Audios: " + str(results.size())
@@ -66,38 +87,12 @@ func load_audios():
         audios_controls.add_child(control)
 
 func clear_audios():
-    var ui = $Audios/v_box
+    var ui = $SFX/Audios/v_box
     for child in ui.get_children():
         child.queue_free()
 
-##legacy
-func legacy_load():
-    if ResourceLoader.exists(LIBRARY_FILE_PATH):
-        var lib: SFXLibrary = load(LIBRARY_FILE_PATH)
-
-        var lines = []
-        for sound: SFXData in lib.sounds:
-            lines.append(sound.res_name)
-
-        if lib and lib.has_method("get"):
-            library_label.text = "Loaded library: %s (sounds: %d)" % [LIBRARY_FILE_PATH, lib.sounds.size()]
-            for sound: SFXData in lib.sounds:
-                # library_label.text += str("\n",line)
-                var control: SFXControl = load("res://addons/audio_manager/ui/sfx_control.tscn").instantiate()
-                control.set_name_label(sound.res_name)
-                control.set_volume_slider(sound.res_volume_db)
-                control.set_pitch_slider(sound.res_pitch_scale)
-                control.set_resource(sound)
-                # control.name_label.text = line
-                audios_controls.add_child(control)
-        else:
-            library_label.text = "⚠️ Invalid SFXLibrary file"
-    else:
-        library_label.text = "❌ No library found"
-
 func _on_search_text_changed() -> void:
-
-    var query: String = $search.text.strip_edges().to_lower()
+    var query: String = $SFX/search.text.strip_edges().to_lower()
     results = []
 
     for audio in audios:

@@ -39,7 +39,7 @@ value = 1.01
 [node name="name" type="Label" parent="."]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 1, 0, 1)
-text = "NAME OF THE SFX"
+text = "name_not_found"
 
 [node name="play" type="Button" parent="."]
 layout_mode = 2

@@ -7,5 +7,5 @@
 script = ExtResource("2_fhyqc")
 res_name = "sfx_tick_004"
 res_stream = ExtResource("1_y10v5")
-res_volume_db = -45.0
-res_pitch_scale = 0.81
+res_volume_db = 0.0
+res_pitch_scale = 1.0

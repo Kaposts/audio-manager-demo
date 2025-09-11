@@ -2,9 +2,9 @@
 extends BoxContainer
 class_name SFXControl
 
-var audioResource: SFXData
+var audioResource: AudioData
 
-func set_resource(data: SFXData):
+func set_resource(data: AudioData):
     audioResource = data
     $play.pressed.connect(_play_button_pressed) 
 

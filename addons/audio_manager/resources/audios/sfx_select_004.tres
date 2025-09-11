@@ -7,5 +7,5 @@
 script = ExtResource("2_57enx")
 res_name = "sfx_select_004"
 res_stream = ExtResource("1_iuntm")
-res_volume_db = -13.5
-res_pitch_scale = 0.96
+res_volume_db = 0.0
+res_pitch_scale = 1.0

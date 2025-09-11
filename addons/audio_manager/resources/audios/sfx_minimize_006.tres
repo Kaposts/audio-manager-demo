@@ -7,5 +7,5 @@
 script = ExtResource("2_r10k1")
 res_name = "sfx_minimize_006"
 res_stream = ExtResource("1_48wgr")
-res_volume_db = -28.5
+res_volume_db = 0.0
 res_pitch_scale = 1.0
