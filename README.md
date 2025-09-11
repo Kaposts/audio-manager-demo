@@ -1,3 +1,3 @@
 ## AUDIO MANAGER FOR GODOT 
-![sound_manager_icon](./icon.png)
+![sound_manager_icon](./addons/audio_manager/icon.png)
 
