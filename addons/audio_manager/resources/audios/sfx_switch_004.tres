@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://bufd8cye1mt2n"]
+
+[ext_resource type="AudioStream" uid="uid://cdmuecn4uwpt4" path="res://Audio/switch/004.ogg" id="1_ij4yg"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_pvbk4"]
+
+[resource]
+script = ExtResource("2_pvbk4")
+res_name = "sfx_switch_004"
+res_stream = ExtResource("1_ij4yg")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

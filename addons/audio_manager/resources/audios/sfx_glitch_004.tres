@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://burd0t77ba1tu"]
+
+[ext_resource type="AudioStream" uid="uid://dxhuwrthvb82" path="res://Audio/glitch/004.ogg" id="1_v3p28"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_d51m0"]
+
+[resource]
+script = ExtResource("2_d51m0")
+res_name = "sfx_glitch_004"
+res_stream = ExtResource("1_v3p28")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://d6o61hu16cfq"]
+
+[ext_resource type="AudioStream" uid="uid://nq52ajo4k026" path="res://Audio/minimize/009.ogg" id="1_gwsb6"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_n7pw5"]
+
+[resource]
+script = ExtResource("2_n7pw5")
+res_name = "sfx_minimize_009"
+res_stream = ExtResource("1_gwsb6")
+res_volume_db = -20.5
+res_pitch_scale = 0.96

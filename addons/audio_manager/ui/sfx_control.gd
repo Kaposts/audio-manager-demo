@@ -1,0 +1,39 @@
+@tool
+extends BoxContainer
+class_name SFXControl
+
+var audioResource: SFXData
+
+func set_resource(data: SFXData):
+    audioResource = data
+    $play.pressed.connect(_play_button_pressed) 
+
+func set_name_label(str: String):
+    $name.text = str
+
+func set_volume_slider(value: float):
+    $volume_container/Volume.value = value
+    $volume_container/Label.text = "Volume:" + str(value) + " db"
+
+func set_pitch_slider(value: float):
+    $pitch_container/Pitch.value = value
+    $pitch_container/Label.text = "Pitch:" + str(value)
+
+func _play_button_pressed():
+    $AudioStreamPlayer.stream = audioResource.res_stream
+    $AudioStreamPlayer.volume_db = audioResource.res_volume_db
+    $AudioStreamPlayer.pitch_scale = audioResource.res_pitch_scale
+    $AudioStreamPlayer.play()
+
+func _on_volume_value_changed(value: float) -> void:
+    $volume_container/Label.text = "Volume:" + str(value) + " db"
+    audioResource.res_volume_db = value
+    save()
+
+func _on_pitch_value_changed(value: float) -> void:
+    $pitch_container/Label.text = "Pitch:" + "%0.2f" % value
+    audioResource.res_pitch_scale = value
+    save()
+
+func save():
+    ResourceSaver.save(audioResource, audioResource.resource_path)

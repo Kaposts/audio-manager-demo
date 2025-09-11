@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://c8m5bltehx2go"]
+
+[ext_resource type="AudioStream" uid="uid://cmlu6iognu70b" path="res://Audio/close/001.ogg" id="1_fqgij"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_b7nto"]
+
+[resource]
+script = ExtResource("2_b7nto")
+res_name = "sfx_close_001"
+res_stream = ExtResource("1_fqgij")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://b0ydd6vleg77a"]
+
+[ext_resource type="AudioStream" uid="uid://bpclhspb3vjh0" path="res://Audio/maximize/006.ogg" id="1_uehpv"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_mp72s"]
+
+[resource]
+script = ExtResource("2_mp72s")
+res_name = "sfx_maximize_006"
+res_stream = ExtResource("1_uehpv")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

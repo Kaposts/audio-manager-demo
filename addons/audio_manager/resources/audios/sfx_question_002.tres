@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://cy01xv7llbli2"]
+
+[ext_resource type="AudioStream" uid="uid://dy4vugbcpddgp" path="res://Audio/question/002.ogg" id="1_sjpug"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_jdame"]
+
+[resource]
+script = ExtResource("2_jdame")
+res_name = "sfx_question_002"
+res_stream = ExtResource("1_sjpug")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

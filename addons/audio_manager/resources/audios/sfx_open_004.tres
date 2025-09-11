@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://dfw1u1d3r6bqf"]
+
+[ext_resource type="AudioStream" uid="uid://bk7g1ekmxpbna" path="res://Audio/open/004.ogg" id="1_wm0at"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_ix4on"]
+
+[resource]
+script = ExtResource("2_ix4on")
+res_name = "sfx_open_004"
+res_stream = ExtResource("1_wm0at")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

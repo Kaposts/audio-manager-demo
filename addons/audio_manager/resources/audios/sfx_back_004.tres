@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://c71oqp46khgck"]
+
+[ext_resource type="AudioStream" uid="uid://cs7vy072i2qpw" path="res://Audio/back/004.ogg" id="1_0dgk1"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_lc348"]
+
+[resource]
+script = ExtResource("2_lc348")
+res_name = "sfx_back_004"
+res_stream = ExtResource("1_0dgk1")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

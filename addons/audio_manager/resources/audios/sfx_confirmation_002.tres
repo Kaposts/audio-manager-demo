@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://p03g8kthg7hv"]
+
+[ext_resource type="AudioStream" uid="uid://dtfbaghvunpu3" path="res://Audio/confirmation/002.ogg" id="1_f38at"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_fvsdh"]
+
+[resource]
+script = ExtResource("2_fvsdh")
+res_name = "sfx_confirmation_002"
+res_stream = ExtResource("1_f38at")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

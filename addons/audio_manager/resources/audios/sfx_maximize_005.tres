@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://dox15a8m7wg3t"]
+
+[ext_resource type="AudioStream" uid="uid://cwtqtcnuj6d3n" path="res://Audio/maximize/005.ogg" id="1_murpu"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_8yj4b"]
+
+[resource]
+script = ExtResource("2_8yj4b")
+res_name = "sfx_maximize_005"
+res_stream = ExtResource("1_murpu")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

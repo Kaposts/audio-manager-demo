@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://yffvej6khax"]
+
+[ext_resource type="AudioStream" uid="uid://j36axtoxvekg" path="res://Audio/back/003.ogg" id="1_fbpkp"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_lmbcl"]
+
+[resource]
+script = ExtResource("2_lmbcl")
+res_name = "sfx_back_003"
+res_stream = ExtResource("1_fbpkp")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

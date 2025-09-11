@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Sound Manager"
+run/main_scene="uid://bk6c8uxti8v3i"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://c7djja30dc6nd"
+
+[autoload]
+
+SFX="*res://addons/audio_manager/sound_effects/sfx.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/audio_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Audio/": "purple",
+"res://addons/": "orange"
+}

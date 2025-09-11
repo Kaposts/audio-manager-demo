@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://dkkfxanstselw"]
+
+[ext_resource type="AudioStream" uid="uid://ccf7n15mk03xa" path="res://Audio/error/003.ogg" id="1_q13vr"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_65dc0"]
+
+[resource]
+script = ExtResource("2_65dc0")
+res_name = "sfx_error_003"
+res_stream = ExtResource("1_q13vr")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://d2ucdksvsc8i1"]
+
+[ext_resource type="AudioStream" uid="uid://bo83enbrwau33" path="res://Audio/tick/004.ogg" id="1_y10v5"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_fhyqc"]
+
+[resource]
+script = ExtResource("2_fhyqc")
+res_name = "sfx_tick_004"
+res_stream = ExtResource("1_y10v5")
+res_volume_db = -45.0
+res_pitch_scale = 0.81

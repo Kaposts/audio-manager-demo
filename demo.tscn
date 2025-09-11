@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6c8uxti8v3i"]
+
+[ext_resource type="Script" uid="uid://cn1edkhn34i1t" path="res://demo.gd" id="1_5hfv0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr1sm"]
+
+[node name="Demo" type="Node2D"]
+script = ExtResource("1_5hfv0")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 214.0
+offset_top = 98.0
+offset_right = 387.0
+offset_bottom = 234.0
+theme_override_constants/icon_max_width = 32
+text = "play
+"
+icon = SubResource("CompressedTexture2D_fr1sm")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

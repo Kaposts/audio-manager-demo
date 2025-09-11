@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://dt6rdbr8c2avh"]
+
+[ext_resource type="AudioStream" uid="uid://c1qoj4xysw33l" path="res://Audio/error/001.ogg" id="1_5wo13"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_h2n8h"]
+
+[resource]
+script = ExtResource("2_h2n8h")
+res_name = "sfx_error_001"
+res_stream = ExtResource("1_5wo13")
+res_volume_db = -61.0
+res_pitch_scale = 1.0

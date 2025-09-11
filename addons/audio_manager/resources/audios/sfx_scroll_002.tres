@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://djsxqyxjs37pd"]
+
+[ext_resource type="AudioStream" uid="uid://fq0j8qo374be" path="res://Audio/scroll/002.ogg" id="1_f0wlk"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_7644v"]
+
+[resource]
+script = ExtResource("2_7644v")
+res_name = "sfx_scroll_002"
+res_stream = ExtResource("1_f0wlk")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

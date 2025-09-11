@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://c3av0p1vhobrv"]
+
+[ext_resource type="AudioStream" uid="uid://ufyr4fm2yhuu" path="res://Audio/drop/003.ogg" id="1_dsvax"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_vv2vg"]
+
+[resource]
+script = ExtResource("2_vv2vg")
+res_name = "sfx_drop_003"
+res_stream = ExtResource("1_dsvax")
+res_volume_db = 0.0
+res_pitch_scale = 1.0

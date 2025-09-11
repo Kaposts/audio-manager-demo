@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://b3126dt4xww06"]
+
+[ext_resource type="AudioStream" uid="uid://155bvvrwug7n" path="res://Audio/scratch/003.ogg" id="1_0iote"]
+[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_16lwo"]
+
+[resource]
+script = ExtResource("2_16lwo")
+res_name = "sfx_scratch_003"
+res_stream = ExtResource("1_0iote")
+res_volume_db = 0.0
+res_pitch_scale = 1.0
