@@ -1,12 +1,21 @@
 extends Node2D
 
-func _on_play_by_name_pressed() -> void:
-	SFX.play_by_name(Audio.SFX_CLICK_001)
+@export var music_1: AudioStream
+@export var music_2: AudioStream
 
+func _on_play_by_name_pressed() -> void:
+	Audio.play_by_name(SFX.SFX_CLICK_001)
 
 func _on_play_random_pressed() -> void:
-	SFX.play_random('sfx_click')
-
+	Audio.play_random('sfx_click')
 
 func _on_play_sequence_pressed() -> void:
-	SFX.play_sequenctial('sfx_click')
+	Audio.play_sequenctial('sfx_click')
+
+
+func _on_play_bgm_2_pressed() -> void:
+	Audio.play_bgm(music_1)
+
+
+func _on_play_bgm_pressed() -> void:
+	Audio.play_bgm(music_2)

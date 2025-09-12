@@ -12,7 +12,7 @@ var results: Array[AudioData] = []
 @onready var info: Label = $info
 
 func load_library():
-    audios = SFX.read_dir()
+    audios = Audio.read_dir()
     results = audios
     load_audios()
 

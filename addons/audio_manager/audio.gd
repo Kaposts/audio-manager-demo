@@ -1,25 +1,31 @@
 @tool
 extends Node
 
+var audios: Array[AudioData] = []
+var config: AudioManagerConfig
+
+func _ready():
+	config = load("res://addons/audio_manager/config/config.tres")
+	setup_sfx()
+	setup_bgm()
+
+## SFX PARAMATERS AND FUNCTIONS
 var max_channels: int = 8
 var channels = []
 
 const RESOURCE_EXTENSION = ".tres"
 const LIBRARY_PATH = "res://addons/audio_manager/resources/audios/"
-var audios: Array[AudioData] = [] 
-var config: AudioManagerConfig
 
-func _ready():
-	config = load("res://addons/audio_manager/config/config_resource.gd")
+func setup_sfx():
 	audios = read_dir()
 
 	for i in range(max_channels):
-		var player = AudioStreamPlayer2D.new()
+		var player = AudioStreamPlayer.new()
 		add_child(player)
 		channels.append(player)
 
 func play(audio: AudioData):
-	for player: AudioStreamPlayer2D in channels:
+	for player: AudioStreamPlayer in channels:
 		if not player.playing:
 			player.stream = audio.res_stream
 			player.volume_db = audio.res_volume_db
@@ -44,6 +50,7 @@ func play_by_name(sound_name: String):
 	for audio: AudioData in audios:
 		if audio.res_name == sound_name:
 			play(audio)
+			return
 
 	push_error("Audio not found")
 	return
@@ -100,3 +107,45 @@ func read_dir() -> Array[AudioData]:
 	dir.list_dir_end()
 
 	return audios
+
+##BGM PARAMATERS AND FUNCTIONS
+@export var fade_time: float = 5
+var current_player: AudioStreamPlayer
+var next_player: AudioStreamPlayer
+
+func setup_bgm():
+	current_player = AudioStreamPlayer.new()
+	next_player = AudioStreamPlayer.new()
+	add_child(current_player)
+	add_child(next_player)
+
+func play_bgm(stream: AudioStream, loop: bool = true):
+	stream.loop = loop
+
+	# Fade out current and fade in new
+	next_player.stream = stream
+	next_player.volume_db = -80
+	next_player.play()
+	crossfade(current_player, next_player)
+
+	var temp_player: AudioStreamPlayer = next_player
+	next_player = current_player
+	current_player = temp_player
+func crossfade(from_player: AudioStreamPlayer, to_player: AudioStreamPlayer):
+	var t := 0.0
+	
+	to_player.play()
+	to_player.seek(15)
+	
+	while t < fade_time:
+		await get_tree().process_frame
+		t += get_process_delta_time()
+		var alpha := clamp(t / fade_time, 0.0, 1.0)
+		to_player.volume_db = lerp(-20.0, 0.0, alpha)
+		from_player.volume_db = lerp(0.0, -20.0, alpha)
+
+	# stop old player after fade completes
+	from_player.stop()
+
+func _process(delta):
+	print('current:',current_player,'next:',next_player)

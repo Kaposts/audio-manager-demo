@@ -1,7 +1,7 @@
 ## Made using Audio Manager
 ## This is a auto generated file to store audio consts
 extends Node
-class_name Audio
+class_name SFX
 const SFX_SELECT_007 = "sfx_select_007"
 const SFX_SELECT_001 = "sfx_select_001"
 const SFX_SELECT_004 = "sfx_select_004"

@@ -8,12 +8,11 @@ var icon: Texture
 var button: Button
 
 var sounds: Array[AudioData] = []
-var library: SFXLibrary = SFXLibrary.new()
 var sound_script_lines: Array[String] = []
 
 var config: AudioManagerConfig = preload("res://addons/audio_manager/config/config.tres")
 var output_directory: String = "res://addons/audio_manager/resources/"
-var output_file_name: String = "audio"
+var output_file_name: String = "sfx"
 var sound_effect_prefix: String = "SFX_"
 
 var window_instance: SFXManagerWindow
@@ -34,7 +33,7 @@ func _enter_tree() -> void:
     button.show()
     button.add_theme_constant_override("icon_max_width", 32)
 
-    add_autoload_singleton("SFX", config.sfx_script)
+    add_autoload_singleton("Audio", config.audio_script)
     print("Audio Manager plugin loaded")
 
     ## TODO fetch audio resources and store in sounds[] array
@@ -43,7 +42,7 @@ func _exit_tree() -> void:
     # Remove button when plugin is disabled
     remove_control_from_container(CONTAINER_TOOLBAR, button)
     button.free()
-    remove_autoload_singleton("SFX")
+    remove_autoload_singleton("Audio")
 
 func _on_button_pressed() -> void:
     if not window_instance:
@@ -65,10 +64,9 @@ func _on_load_pressed() -> void:
     sound_effect_prefix = config.sound_effect_prefix
     
     ## TODO could make this to copy a file 
-    sound_script_lines = ["## Made using Audio Manager\n","## This is a auto generated file to store audio consts\n","extends Node\n","class_name ", output_file_name.to_pascal_case(),"\n", ]
+    sound_script_lines = ["## Made using Audio Manager\n","## This is a auto generated file to store audio consts\n","extends Node\n","class_name ", output_file_name.to_upper(),"\n", ]
     
     read_sfx_files()
-    generate_library()
     write_const_file()
 
     window_instance.info.text = "Load was done successfully"
@@ -127,10 +125,6 @@ func read_sfx_files() -> void:
         return
 
     _scan_dir_recursive(dir, "", path)
-
-func generate_library() -> void:
-    var save_path = output_directory + config.sfx_library_name
-    ResourceSaver.save(library, save_path)
 
 func get_base_name(resource) -> String:
     return resource.resource_path.get_file().get_basename()

@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk6c8uxti8v3i"]
+[gd_scene load_steps=5 format=3 uid="uid://bk6c8uxti8v3i"]
 
 [ext_resource type="Script" uid="uid://cn1edkhn34i1t" path="res://demo.gd" id="1_5hfv0"]
+[ext_resource type="AudioStream" uid="uid://b6hgnojip8yn2" path="res://BGM/001.mp3" id="2_m0rpm"]
+[ext_resource type="AudioStream" uid="uid://c3qh330ftfhc1" path="res://BGM/003.mp3" id="3_m0rpm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr1sm"]
 
 [node name="Demo" type="Node2D"]
 script = ExtResource("1_5hfv0")
+music_1 = ExtResource("2_m0rpm")
+music_2 = ExtResource("3_m0rpm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 331.0
@@ -29,6 +33,29 @@ theme_override_constants/icon_max_width = 32
 text = "play_by_name"
 icon = SubResource("CompressedTexture2D_fr1sm")
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 4.0
+offset_top = 220.0
+offset_right = 335.0
+offset_bottom = 473.0
+
+[node name="play_bgm" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+text = "play_bgm"
+icon = SubResource("CompressedTexture2D_fr1sm")
+
+[node name="play_bgm_2" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/icon_max_width = 32
+text = "play_bgm_2
+"
+icon = SubResource("CompressedTexture2D_fr1sm")
+
 [connection signal="pressed" from="VBoxContainer/play_sequence" to="." method="_on_play_sequence_pressed"]
 [connection signal="pressed" from="VBoxContainer/play_random" to="." method="_on_play_random_pressed"]
 [connection signal="pressed" from="VBoxContainer/play_by_name" to="." method="_on_play_by_name_pressed"]
+[connection signal="pressed" from="VBoxContainer2/play_bgm" to="." method="_on_play_bgm_pressed"]
+[connection signal="pressed" from="VBoxContainer2/play_bgm_2" to="." method="_on_play_bgm_2_pressed"]

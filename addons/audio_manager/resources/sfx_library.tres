@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SFXLibrary" load_steps=3 format=3 uid="uid://bdmb6s7qrtprv"]
-
-[ext_resource type="Script" uid="uid://bslit48fjnhe6" path="res://addons/audio_manager/sound_effects/sfx_library.gd" id="1_2qys0"]
-[ext_resource type="Script" uid="uid://bby850gxeiihc" path="res://addons/audio_manager/audio_data.gd" id="2_nob6d"]
-
-[resource]
-script = ExtResource("1_2qys0")
-sounds = Array[ExtResource("2_nob6d")]([])

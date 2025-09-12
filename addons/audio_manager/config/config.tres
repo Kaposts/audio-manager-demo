@@ -7,12 +7,12 @@
 [resource]
 script = ExtResource("1_blbvh")
 sfx_directory = "res://Audio/"
-output_file_name = "audio"
+output_file_name = "sfx"
 output_directory = "res://addons/audio_manager/resources/"
 sound_effect_prefix = "SFX_"
-pitch_randomizer_range = 0.2
+pitch_randomizer_range = 2.0
 icon = ExtResource("1_5s4fg")
 manager_ui = ExtResource("2_a0emt")
-sfx_script = "res://addons/audio_manager/sound_effects/sfx.gd"
+audio_script = "res://addons/audio_manager/audio.gd"
 sfx_library_name = "sfx_library.tres"
 metadata/_custom_type_script = "uid://7cgnnf40dow"

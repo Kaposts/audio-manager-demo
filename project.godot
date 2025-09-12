@@ -17,7 +17,7 @@ config/icon="uid://c7djja30dc6nd"
 
 [autoload]
 
-SFX="*res://addons/audio_manager/sound_effects/sfx.gd"
+Audio="*res://addons/audio_manager/audio.gd"
 
 [editor_plugins]
 

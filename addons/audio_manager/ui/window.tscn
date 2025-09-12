@@ -172,7 +172,7 @@ text = "Pitch randomizer range(float)"
 [node name="input" type="LineEdit" parent="Config/config_container/pitch_randomizer_range"]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "0.1"
+text = "2.0"
 
 [node name="BGM" type="Control" parent="."]
 visible = false

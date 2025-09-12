@@ -9,4 +9,4 @@ res_name = "sfx_back_002"
 res_stream = ExtResource("1_nmfqf")
 res_volume_db = 0.0
 res_pitch_scale = 1.0
-res_pitch_randomizer = true
+res_pitch_randomizer = false

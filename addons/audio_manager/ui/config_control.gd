@@ -2,9 +2,10 @@
 extends Control
 class_name ConfigControl
 
-var config: AudioManagerConfig = preload("res://addons/audio_manager/config/config.tres")
+var config: AudioManagerConfig
 
 func _ready():
+	config = load("res://addons/audio_manager/config/config.tres")
 	$config_container/sfx_directory/btn.pressed.connect(_on_browse_pressed)
 	$config_container/sfx_directory/FileDialog.dir_selected.connect(_on_dir_selected)
 	$config_container/sfx_directory/input.text = config.sfx_directory
@@ -20,7 +21,6 @@ func _on_browse_pressed() -> void:
 
 func save():
 	ResourceSaver.save(config, config.resource_path)
-
 
 func _on_input_text_changed(new_text:String) -> void:
 	config.pitch_randomizer_range = float(new_text)
