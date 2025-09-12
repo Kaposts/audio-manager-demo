@@ -162,15 +162,6 @@ layout_mode = 2
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("3_mki52")
 
-[node name="Version" type="Label" parent="."]
-offset_left = 716.0
-offset_top = 562.0
-offset_right = 992.0
-offset_bottom = 593.0
-text = "audio_manager_v_1"
-horizontal_alignment = 2
-vertical_alignment = 2
-
 [node name="BGM" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -185,6 +176,23 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "coming soon"
+
+[node name="Version" type="Label" parent="."]
+offset_left = 716.0
+offset_top = 562.0
+offset_right = 992.0
+offset_bottom = 593.0
+text = "audio_manager_v_1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="info" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 555.0
+offset_right = 823.0
+offset_bottom = 593.0
+theme_override_colors/font_color = Color(0, 0.752941, 0.0705882, 1)
+vertical_alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/sfx" to="." method="_on_sfx_pressed"]
 [connection signal="pressed" from="VBoxContainer/bgm" to="." method="_on_bgm_pressed"]

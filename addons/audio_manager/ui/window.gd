@@ -12,6 +12,7 @@ const RESOURCE_EXTENSION = ".tres"
 const LIBRARY_PATH = "res://addons/audio_manager/resources/audios/"
 
 @onready var loadBut: Button = $VBoxContainer/Load
+@onready var info: Label = $info
 
 func load_library():
     read_dir()

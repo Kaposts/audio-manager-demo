@@ -35,7 +35,9 @@ func _enter_tree() -> void:
     button.add_theme_constant_override("icon_max_width", 32)
 
     add_autoload_singleton("SFX", config.sfx_script)
-    print("SFX Generator plugin loaded")
+    print("Audio Manager plugin loaded")
+
+    ## TODO fetch audio resources and store in sounds[] array
 
 func _exit_tree() -> void:
     # Remove button when plugin is disabled
@@ -69,24 +71,34 @@ func _on_load_pressed() -> void:
     generate_library()
     write_const_file()
 
+    window_instance.info.text = "Load was done successfully"
+
 func create_sfx_data(sfx: AudioStream, prefix: String) -> AudioData:
     assert(sfx, "no sfx defined")
 
     var sfx_name = get_base_name(sfx)
     assert(sfx_name != "", "sfx_name is empty")
-    
+
     var const_name = sound_effect_prefix
     if prefix != "":
         const_name += prefix + "_"
     const_name += sfx_name
 
+    sound_script_lines.append("const %s = \"%s\"\n" % [to_upper_snake_case(const_name), const_name.to_lower()])
+
+    ##checking if we need to create a resource
+    var resource_exist: bool = false
+    for res: AudioData in sounds:
+        if res.res_name == const_name.to_lower():
+            resource_exist = true
+            return
+
+    if resource_exist: return
+
     var data = AudioData.new()
     data.res_name = const_name.to_lower()
     data.res_stream = sfx
 
-    sound_script_lines.append("const %s = \"%s\"\n" % [to_upper_snake_case(const_name), const_name.to_lower()])
-
-    
     sounds.append(data)
 
     print('Audio sfx data .tres status : ',ResourceSaver.save(data, output_directory + "audios/" + data.res_name + '.tres'))
@@ -102,14 +114,12 @@ func write_const_file() -> void:
         var str = ""
         file.store_string(str.join(sound_script_lines))
         file.close()
-        print("Sounds.gd generated in ", output_path)
 
     else:
         push_error("Failed to write file: ", output_path)
 
 func read_sfx_files() -> void:
     var path = config.sfx_directory
-    print("Scanning: ", path)
 
     var dir = DirAccess.open(path)
     if dir == null:
