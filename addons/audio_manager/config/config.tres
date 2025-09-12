@@ -10,6 +10,7 @@ sfx_directory = "res://Audio/"
 output_file_name = "audio"
 output_directory = "res://addons/audio_manager/resources/"
 sound_effect_prefix = "SFX_"
+pitch_randomizer_range = 0.2
 icon = ExtResource("1_5s4fg")
 manager_ui = ExtResource("2_a0emt")
 sfx_script = "res://addons/audio_manager/sound_effects/sfx.gd"

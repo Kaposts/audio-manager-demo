@@ -9,3 +9,4 @@ res_name = "sfx_back_003"
 res_stream = ExtResource("1_fbpkp")
 res_volume_db = 0.0
 res_pitch_scale = 1.0
+res_pitch_randomizer = true

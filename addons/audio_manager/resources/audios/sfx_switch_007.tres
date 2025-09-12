@@ -9,3 +9,4 @@ res_name = "sfx_switch_007"
 res_stream = ExtResource("1_x8b6a")
 res_volume_db = 0.0
 res_pitch_scale = 1.0
+res_pitch_randomizer = false

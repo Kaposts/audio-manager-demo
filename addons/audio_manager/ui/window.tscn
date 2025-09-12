@@ -162,6 +162,18 @@ layout_mode = 2
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("3_mki52")
 
+[node name="pitch_randomizer_range" type="HBoxContainer" parent="Config/config_container"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="Config/config_container/pitch_randomizer_range"]
+layout_mode = 2
+text = "Pitch randomizer range(float)"
+
+[node name="input" type="LineEdit" parent="Config/config_container/pitch_randomizer_range"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0.1"
+
 [node name="BGM" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -199,3 +211,4 @@ vertical_alignment = 2
 [connection signal="pressed" from="VBoxContainer/config" to="." method="_on_config_pressed"]
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]
 [connection signal="text_changed" from="SFX/search" to="." method="_on_search_text_changed"]
+[connection signal="text_changed" from="Config/config_container/pitch_randomizer_range/input" to="Config" method="_on_input_text_changed"]

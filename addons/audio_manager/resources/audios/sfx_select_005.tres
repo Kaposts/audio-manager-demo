@@ -9,3 +9,4 @@ res_name = "sfx_select_005"
 res_stream = ExtResource("1_fdafi")
 res_volume_db = 0.0
 res_pitch_scale = 1.0
+res_pitch_randomizer = false

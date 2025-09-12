@@ -9,3 +9,4 @@ res_name = "sfx_question_004"
 res_stream = ExtResource("1_v4q0g")
 res_volume_db = 0.0
 res_pitch_scale = 1.0
+res_pitch_randomizer = false

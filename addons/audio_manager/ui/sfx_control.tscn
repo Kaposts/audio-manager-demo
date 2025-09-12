@@ -48,5 +48,10 @@ text = "play"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="pitch_randomizer" type="CheckButton" parent="."]
+layout_mode = 2
+text = "PR"
+
 [connection signal="value_changed" from="volume_container/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="pitch_container/Pitch" to="." method="_on_pitch_value_changed"]
+[connection signal="toggled" from="pitch_randomizer" to="." method="_on_pitch_randomizer_toggled"]

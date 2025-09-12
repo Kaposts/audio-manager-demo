@@ -8,50 +8,16 @@ var results: Array[AudioData] = []
 @onready var library_label: Label = $SFX/Label
 @onready var audios_controls = $SFX/Audios/v_box
 
-const RESOURCE_EXTENSION = ".tres"
-const LIBRARY_PATH = "res://addons/audio_manager/resources/audios/"
-
 @onready var loadBut: Button = $VBoxContainer/Load
 @onready var info: Label = $info
 
 func load_library():
-    read_dir()
+    audios = SFX.read_dir()
+    results = audios
     load_audios()
 
 func _on_close_pressed() -> void:
     queue_free()
-
-func read_dir() -> void:
-    var path = LIBRARY_PATH
-
-    var dir = DirAccess.open(path)
-    if dir == null:
-        push_error("Audio Manager cannot open folder: %s" % path)
-        return
-
-    dir.list_dir_begin()
-    var filename = dir.get_next()
-
-    while filename != "":
-        # skip hidden files
-        if filename.begins_with("."):
-            filename = dir.get_next()
-            continue
-
-        elif filename.get_extension().to_lower() in RESOURCE_EXTENSION:
-                var resource: AudioData = load(path + filename)
-                assert(resource,"resource " + filename + " was not found")
-                audios.append(resource)
-        else: 
-            push_error('The extension for this file is not supported: ', filename)
-
-        filename = dir.get_next()
-    
-    dir.list_dir_end()
-
-    results = audios
-
-
 
 func _on_config_pressed() -> void:
     hide_tabs()
@@ -88,6 +54,7 @@ func load_audios():
         control.set_volume_slider(audio.res_volume_db)
         control.set_pitch_slider(audio.res_pitch_scale)
         control.set_resource(audio)
+        control.set_pitch_randomizer(audio.res_pitch_randomizer)
 
         audios_controls.add_child(control)
 
