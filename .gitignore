@@ -24,5 +24,5 @@ mono_crash.*.json
 
 # VSCode
 .vscode/
-
-/addons/audio_manager/resources/audios/*
+addons/audio_manager/resources/audios/*
+!addons/audio_manager/resources/audios/1

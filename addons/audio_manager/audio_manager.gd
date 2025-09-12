@@ -86,7 +86,8 @@ func create_sfx_data(sfx: AudioStream, prefix: String) -> AudioData:
 
     sound_script_lines.append("const %s = \"%s\"\n" % [to_upper_snake_case(const_name), const_name.to_lower()])
 
-    library.sounds.append(data)
+    
+    sounds.append(data)
 
     print('Audio sfx data .tres status : ',ResourceSaver.save(data, output_directory + "audios/" + data.res_name + '.tres'))
 

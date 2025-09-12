@@ -38,7 +38,7 @@ func read_dir() -> void:
             continue
 
         elif filename.get_extension().to_lower() in RESOURCE_EXTENSION:
-                var resource: AudioData = load(LIBRARY_PATH + filename)
+                var resource: AudioData = load(path + filename)
                 assert(resource,"resource " + filename + " was not found")
                 audios.append(resource)
         else: 
@@ -76,6 +76,10 @@ func hide_tabs():
 
 func load_audios():
     library_label.text = "Audios: " + str(results.size())
+    results.sort_custom(func(a: AudioData, b: AudioData) -> bool:
+        return a.res_name < b.res_name
+    )
+
     for audio in results:
         var control: SFXControl = load("res://addons/audio_manager/ui/sfx_control.tscn").instantiate()
 

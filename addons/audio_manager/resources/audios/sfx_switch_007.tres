@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://cfewvarihvhvi"]
+[gd_resource type="Resource" script_class="AudioData" load_steps=3 format=3 uid="uid://djqoef3gyxrqu"]
 
 [ext_resource type="AudioStream" uid="uid://ue47afvhfk6y" path="res://Audio/switch/007.ogg" id="1_x8b6a"]
-[ext_resource type="Script" uid="uid://btytmm0kfpxpy" path="res://addons/audio_manager/sound_effects/sfx_data.gd" id="2_b0uai"]
+[ext_resource type="Script" uid="uid://bby850gxeiihc" path="res://addons/audio_manager/audio_data.gd" id="2_b0uai"]
 
 [resource]
 script = ExtResource("2_b0uai")
