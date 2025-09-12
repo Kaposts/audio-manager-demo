@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk6c8uxti8v3i"]
+[gd_scene load_steps=7 format=3 uid="uid://bk6c8uxti8v3i"]
 
 [ext_resource type="Script" uid="uid://cn1edkhn34i1t" path="res://demo.gd" id="1_5hfv0"]
 [ext_resource type="AudioStream" uid="uid://b6hgnojip8yn2" path="res://BGM/001.mp3" id="2_m0rpm"]
 [ext_resource type="AudioStream" uid="uid://c3qh330ftfhc1" path="res://BGM/003.mp3" id="3_m0rpm"]
+[ext_resource type="Texture2D" uid="uid://bs0tv70osjsms" path="res://addons/audio_manager/icon.png" id="4_c6xj6"]
+[ext_resource type="Script" uid="uid://dvi25n3lqm6ml" path="res://icon.gd" id="5_6bw2v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr1sm"]
 
@@ -54,8 +56,36 @@ text = "play_bgm_2
 "
 icon = SubResource("CompressedTexture2D_fr1sm")
 
+[node name="Icon" type="Node2D" parent="."]
+position = Vector2(2, 329)
+script = ExtResource("5_6bw2v")
+distance = 1150.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Icon"]
+position = Vector2(3, 0)
+max_distance = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Icon"]
+texture = ExtResource("4_c6xj6")
+
+[node name="play_2d_sound" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 50)
+offset_left = 2.0
+offset_top = 427.0
+offset_right = 339.0
+offset_bottom = 481.0
+theme_override_constants/icon_max_width = 32
+text = "Play 2D sound on Godot
+"
+icon = SubResource("CompressedTexture2D_fr1sm")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(550, 330)
+current = true
+
 [connection signal="pressed" from="VBoxContainer/play_sequence" to="." method="_on_play_sequence_pressed"]
 [connection signal="pressed" from="VBoxContainer/play_random" to="." method="_on_play_random_pressed"]
 [connection signal="pressed" from="VBoxContainer/play_by_name" to="." method="_on_play_by_name_pressed"]
 [connection signal="pressed" from="VBoxContainer2/play_bgm" to="." method="_on_play_bgm_pressed"]
 [connection signal="pressed" from="VBoxContainer2/play_bgm_2" to="." method="_on_play_bgm_2_pressed"]
+[connection signal="pressed" from="play_2d_sound" to="." method="_on_play_2d_sound_pressed"]

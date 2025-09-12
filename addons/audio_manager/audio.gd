@@ -9,6 +9,7 @@ func _ready():
 	setup_sfx()
 	setup_bgm()
 
+
 ## SFX PARAMATERS AND FUNCTIONS
 var max_channels: int = 8
 var channels = []
@@ -24,7 +25,33 @@ func setup_sfx():
 		add_child(player)
 		channels.append(player)
 
-func play(audio: AudioData):
+#player_override types: AudioStreamPlayer, AudioStreamPlayer2D, AudioStreamPlayer3D
+func play(audio: AudioData, player_override = null):
+
+	## TODO Duplicate code fix later
+	if player_override:
+		assert(
+			player_override is AudioStreamPlayer \
+			or player_override is AudioStreamPlayer2D \
+			or player_override is AudioStreamPlayer3D,
+			"player_override must be AudioStreamPlayer, AudioStreamPlayer2D, or AudioStreamPlayer3D"
+		)
+
+		player_override.stream = audio.res_stream
+		player_override.volume_db = audio.res_volume_db
+		player_override.pitch_scale = audio.res_pitch_scale
+		player_override.autoplay = true
+
+		if audio.res_pitch_randomizer:
+			var range = config.pitch_randomizer_range
+			var rand := randf_range(-1 * range, range)
+			player_override.pitch_scale += rand
+
+		player_override.play()
+
+		return
+
+
 	for player: AudioStreamPlayer in channels:
 		if not player.playing:
 			player.stream = audio.res_stream
@@ -46,16 +73,16 @@ func play(audio: AudioData):
 	# channels[0].pitch_scale = pitch_scale
 	# channels[0].play()
 
-func play_by_name(sound_name: String):
+func play_by_name(sound_name: String, player_override = null):
 	for audio: AudioData in audios:
 		if audio.res_name == sound_name:
-			play(audio)
+			play(audio, player_override)
 			return
 
 	push_error("Audio not found")
 	return
 
-func play_random(prefix: String) -> void:
+func play_random(prefix: String, player_override = null) -> void:
 	var matches := audios.filter(func(a): return a.res_name.begins_with(prefix))
 
 	if matches.is_empty():
@@ -63,11 +90,11 @@ func play_random(prefix: String) -> void:
 		return
 	var chosen: AudioData
 	chosen = matches[randi() % matches.size()]
-	play(chosen)
+	play(chosen, player_override)
 
 var play_index: Dictionary = {} # keeps track of last played index per prefix
 
-func play_sequenctial(prefix: String) -> void:
+func play_sequenctial(prefix: String, player_override = null) -> void:
 	var matches := audios.filter(func(a): return a.res_name.begins_with(prefix))
 	var idx := play_index.get(prefix, 0)
 	var chosen: AudioData
@@ -75,7 +102,7 @@ func play_sequenctial(prefix: String) -> void:
 	idx = (idx + 1) % matches.size()
 	play_index[prefix] = idx
 
-	play(chosen)
+	play(chosen, player_override)
 
 func read_dir() -> Array[AudioData]:
 	audios = []
@@ -108,6 +135,7 @@ func read_dir() -> Array[AudioData]:
 
 	return audios
 
+
 ##BGM PARAMATERS AND FUNCTIONS
 @export var fade_time: float = 5
 var current_player: AudioStreamPlayer
@@ -131,6 +159,7 @@ func play_bgm(stream: AudioStream, loop: bool = true):
 	var temp_player: AudioStreamPlayer = next_player
 	next_player = current_player
 	current_player = temp_player
+
 func crossfade(from_player: AudioStreamPlayer, to_player: AudioStreamPlayer):
 	var t := 0.0
 	
@@ -146,6 +175,3 @@ func crossfade(from_player: AudioStreamPlayer, to_player: AudioStreamPlayer):
 
 	# stop old player after fade completes
 	from_player.stop()
-
-func _process(delta):
-	print('current:',current_player,'next:',next_player)

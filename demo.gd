@@ -19,3 +19,6 @@ func _on_play_bgm_2_pressed() -> void:
 
 func _on_play_bgm_pressed() -> void:
 	Audio.play_bgm(music_2)
+
+func _on_play_2d_sound_pressed() -> void:
+	Audio.play_by_name('sfx_close_002', $Icon/AudioStreamPlayer2D)
