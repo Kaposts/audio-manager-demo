@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Sound Manager"
 run/main_scene="uid://bk6c8uxti8v3i"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://c7djja30dc6nd"
 
 [autoload]
 
 Audio="*res://addons/audio_manager/audio.gd"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
